@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>APTIV Machine Filter</title>
+    <link rel="stylesheet" href="../dashboard/css/style.css" />
+    <link rel="stylesheet" href="../dashboard/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>APTIV</h2>
+      <ul>
+        <li>
+          <a href="dashboard.html" class="zone-link"
+            ><i class="fa-regular fa-chart-bar fa-fw"></i><span>Status</span></a
+          >
+        </li>
+        <li>
+          <a href="filter-view.html" class="zone-link"
+            ><i class="fa-solid fa-chart-simple"></i><span>Pareto</span></a
+          >
+        </li>
+        <li>
+          <a href="dashboard.html" class="zone-link"
+            ><i class="fa-regular fa-file fa-fw"></i><span>Action</span></a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="content content-filter">
+      <form id="filter-form">
+        <h1 class="filter-dash">Machine Downtime Filter</h1>
+
+        <div class="filter-flex">
+          <div class="date-range">
+            <label class="label-name">Date Range:</label><br />
+
+            <!-- Original manual range -->
+            <input type="date" id="date-from" />
+            to
+            <input type="date" id="date-to" />
+
+            <!-- Preset selector beside it -->
+            <!-- <select id="preset-range" title="Select Date Range">
+              <option value="">Select</option>
+              <option value="today">Today</option>
+              <option value="lastWeek">Last Week</option>
+              <option value="thisMonth">This Month</option>
+            </select> -->
+
+            <br /><br />
+          </div>
+
+          <!-- View Chart Per -->
+          <div class="filter-group-by">
+            <label class="label-name">Search By:</label><br />
+            <select id="group-by">
+              <option value="day">Day</option>
+              <option value="week">Week</option>
+              <option value="month">Month</option>
+            </select>
+            <br /><br />
+          </div>
+
+          <!-- Select Zone -->
+          <div class="filter-zn">
+            <label class="label-name">Zone:</label><br />
+            <select id="group-select">
+              <option value="ALL">All Zones</option>
+              <option value="G1">G1</option>
+              <option value="G2">G2</option>
+              <option value="G3">G3</option>
+              <option value="G4">G4</option>
+            </select>
+            <br /><br />
+          </div>
+
+          <!-- Select Shift -->
+          <div class="filter-shift">
+            <label class="label-name">Shift:</label><br />
+            <select id="shift-select">
+              <option value="ALL">All Shifts</option>
+              <option value="MORNING">Shift 1</option>
+              <option value="AFTERNOON">Shift 2</option>
+              <option value="NIGHT">Shift 3</option>
+            </select>
+            <br /><br />
+          </div>
+
+          <!-- Search By Machine -->
+          <div class="filter-mc-name">
+            <label class="label-name">Machine Name</label><br />
+            <input type="text" id="machine-name" placeholder="MC01..." />
+            <br /><br />
+          </div>
+
+          <button type="submit" id="submit">Search</button>
+        </div>
+      </form>
+
+      <div id="no-data-msg" style="margin-top: 20px; color: red"></div>
+      <canvas
+        id="paretoChart"
+        width="400"
+        height="200"
+        style="margin-top: 20px"
+      ></canvas>
+    </div>
+
+    <script src="filter.js"></script>
+  </body>
+</html>

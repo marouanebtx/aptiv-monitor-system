@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>APTIV Machine Dashboard</title>
+    <link rel="stylesheet" href="../dashboard/css/style.css" />
+    <link rel="stylesheet" href="../dashboard/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>APTIV</h2>
+      <ul>
+        <li>
+          <a href="dashboard.html" class="zone-link"
+            ><i class="fa-regular fa-chart-bar fa-fw"></i><span>Status</span></a
+          >
+        </li>
+        <li>
+          <a href="filter-view.html" class="zone-link"
+            ><i class="fa-solid fa-chart-simple"></i><span>Pareto</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="zone-link"
+            ><i class="fa-regular fa-file fa-fw"></i><span>Action</span></a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="top-bar">
+        <div class="dashboard-header">
+          <div class="dashboard-top">
+            <div class="search-div">
+              <input
+                type="text"
+                id="search-box"
+                placeholder="Search machine..."
+              />
+            </div>
+            <div id="last-checked" class="global-time">--</div>
+            <div class="zone-select-wrapper">
+              <!-- <label for="zone-select">Select Machine Group</label> -->
+              <select id="zone-select">
+                <option value="ALL">Select Group</option>
+                <option value="ALL">All Machines</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="G3">G3</option>
+                <option value="G4">G4</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="summary-box"></div>
+        </div>
+        <h1>Machine Connectivity</h1>
+      </div>
+
+      <div id="dashboard-content">Loading...</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

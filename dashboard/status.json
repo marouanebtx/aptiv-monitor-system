@@ -1,0 +1,72 @@
+[
+  {
+    "name": "MC01",
+    "ip": "10.236.148.62",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 22:36:33",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC02",
+    "ip": "10.236.148.62",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 22:36:33",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC03",
+    "ip": "10.236.148.62",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 22:36:33",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC04",
+    "ip": "192.168.1.10",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 23:06:20",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC05",
+    "ip": "192.168.1.11",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 22:36:33",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC06",
+    "ip": "192.168.1.12",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 22:36:33",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC07",
+    "ip": "192.168.1.13",
+    "zone": "G1",
+    "status": "offline",
+    "lastChecked": "2025-07-08 23:15:40",
+    "downtimeStart": "2025-07-08 22:36:33",
+    "currentShift": "NIGHT",
+    "shiftName": "Night Shift (22:00-06:00)"
+  }
+]
