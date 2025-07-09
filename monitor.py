@@ -1,6 +1,6 @@
-# =======================
+# =========================================
 # APTIV Machine Connectivity Monitor System
-# =======================
+# =========================================
 
 import json
 import time
@@ -13,9 +13,9 @@ import os
 # Configuration
 # =======================
 machines = [
-    {"name": "MC01", "ip": "10.236.148.62", "zone": "G1"},
-    {"name": "MC02", "ip": "10.236.148.62", "zone": "G1"},
-    {"name": "MC03", "ip": "10.236.148.62", "zone": "G1"},
+    {"name": "MC01", "ip": "10.210.148.11", "zone": "G1"},
+    {"name": "MC02", "ip": "10.210.148.10", "zone": "G1"},
+    {"name": "MC03", "ip": "10.210.148.9", "zone": "G1"},
     {"name": "MC04", "ip": "192.168.1.10", "zone": "G1"},
     {"name": "MC05", "ip": "192.168.1.11", "zone": "G1"},
     {"name": "MC06", "ip": "192.168.1.12", "zone": "G1"},
@@ -53,7 +53,7 @@ def get_shift_name(shift_code):
     return shift_names.get(shift_code, shift_code)
 
 # =======================
-# Ping Logic
+# Ping
 # =======================
 def check_machine(machine):
     ip = machine["ip"]
