@@ -13,13 +13,13 @@ import os
 # Configuration
 # =======================
 machines = [
-    {"name": "MC01", "ip": "10.236.148.62", "zone": "G1"},
-    {"name": "MC02", "ip": "10.236.148.62", "zone": "G1"},
-    {"name": "MC03", "ip": "10.236.148.62", "zone": "G1"},
-    {"name": "MC04", "ip": "192.168.1.10", "zone": "G1"},
-    {"name": "MC05", "ip": "192.168.1.11", "zone": "G1"},
-    {"name": "MC06", "ip": "192.168.1.12", "zone": "G1"},
-    {"name": "MC07", "ip": "192.168.1.13", "zone": "G1"}
+    {"name": "MC01", "ip": "10.236.148.91", "zone": "G1"},
+    {"name": "MC02", "ip": "10.236.148.92", "zone": "G1"},
+    {"name": "MC03", "ip": "10.236.148.93", "zone": "G1"},
+    {"name": "MC04", "ip": "10.236.148.94", "zone": "G1"},
+    {"name": "MC05", "ip": "10.236.148.95", "zone": "G1"},
+    {"name": "MC06", "ip": "10.236.148.96", "zone": "G1"},
+    {"name": "MC07", "ip": "10.236.148.92", "zone": "G1"}
 ]
 
 status_file = r"dashboard\status.json"
@@ -69,7 +69,7 @@ def check_machine(machine):
     if status == "offline":
         if ip not in downtime_status:
             downtime_status[ip] = now
-            print(f"[{now_str}] 🔴 {name} ({ip}) in {zone} went OFFLINE during {get_shift_name(current_shift)}")
+            print(f"[{now_str}] {name} ({ip}) in {zone} went OFFLINE during {get_shift_name(current_shift)}")
 
     # If machine comes back online
     else:
@@ -114,7 +114,7 @@ def check_machine(machine):
             with open(json_log_file, "w") as f:
                 json.dump(logs, f, indent=2)
 
-            print(f"[{now_str}] 🟢 {name} ({ip}) in {zone} is back ONLINE after {duration} (Started: {get_shift_name(start_shift)}, Ended: {get_shift_name(end_shift)})")
+            print(f"[{now_str}] {name} ({ip}) in {zone} is back ONLINE after {duration} (Started: {get_shift_name(start_shift)}, Ended: {get_shift_name(end_shift)})")
             del downtime_status[ip]
 
     return {

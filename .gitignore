@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.log
+logs/
+*.DS_Store
+status.json
+downtime_logs.json

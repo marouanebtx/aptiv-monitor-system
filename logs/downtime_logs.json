@@ -1745,5 +1745,70 @@
     "end_shift": "NIGHT",
     "shift_name_start": "Night Shift (22:00-06:00)",
     "shift_name_end": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC04",
+    "ip": "192.168.1.10",
+    "zone": "G1",
+    "start": "2025-07-08 23:06:20",
+    "end": "2025-07-08 23:37:18",
+    "duration": "0:30:57",
+    "date": "2025-07-08",
+    "start_shift": "NIGHT",
+    "end_shift": "NIGHT",
+    "shift_name_start": "Night Shift (22:00-06:00)",
+    "shift_name_end": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC04",
+    "ip": "192.168.1.10",
+    "zone": "G1",
+    "start": "2025-07-08 23:40:30",
+    "end": "2025-07-08 23:40:32",
+    "duration": "0:00:02",
+    "date": "2025-07-08",
+    "start_shift": "NIGHT",
+    "end_shift": "NIGHT",
+    "shift_name_start": "Night Shift (22:00-06:00)",
+    "shift_name_end": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC04",
+    "ip": "192.168.1.10",
+    "zone": "G1",
+    "start": "2025-07-08 23:40:39",
+    "end": "2025-07-08 23:40:41",
+    "duration": "0:00:02",
+    "date": "2025-07-08",
+    "start_shift": "NIGHT",
+    "end_shift": "NIGHT",
+    "shift_name_start": "Night Shift (22:00-06:00)",
+    "shift_name_end": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC04",
+    "ip": "192.168.1.10",
+    "zone": "G1",
+    "start": "2025-07-08 23:41:09",
+    "end": "2025-07-08 23:41:11",
+    "duration": "0:00:02",
+    "date": "2025-07-08",
+    "start_shift": "NIGHT",
+    "end_shift": "NIGHT",
+    "shift_name_start": "Night Shift (22:00-06:00)",
+    "shift_name_end": "Night Shift (22:00-06:00)"
+  },
+  {
+    "name": "MC04",
+    "ip": "192.168.1.10",
+    "zone": "G1",
+    "start": "2025-07-10 00:10:38",
+    "end": "2025-07-10 00:10:41",
+    "duration": "0:00:02",
+    "date": "2025-07-10",
+    "start_shift": "NIGHT",
+    "end_shift": "NIGHT",
+    "shift_name_start": "Night Shift (22:00-06:00)",
+    "shift_name_end": "Night Shift (22:00-06:00)"
   }
 ]

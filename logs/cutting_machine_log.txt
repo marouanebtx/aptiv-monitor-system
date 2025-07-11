@@ -1,6 +1,3 @@
-Cutting_Zone | Machine 2 | IP: 192.168.1.9 | Downtime: 2025-06-19 20:34:49.128005 - 2025-06-19 20:35:15.357984 | Duration: 0:00:26 | Date: 2025-06-19
-Cutting_Zone | Machine 2 | IP: 192.168.1.9 | Downtime: 2025-06-19 21:39:48.248523 - 2025-06-19 21:53:59.570668 | Duration: 0:14:11 | Date: 2025-06-19
-Cutting_Zone | Machine 2 | IP: 192.168.1.9 | Downtime: 2025-06-19 21:59:41.461344 - 2025-06-19 22:01:47.932877 | Duration: 0:02:06 | Date: 2025-06-19
 G3 | MC8 | IP: 192.168.1.16 | Downtime: 2025-06-20 21:25:57.376823 - 2025-06-20 21:36:42.079475 | Duration: 0:10:44 | Date: 2025-06-20
 G3 | MC8 | IP: 192.168.1.16 | Downtime: 2025-06-20 22:05:20.534188 - 2025-06-20 22:33:54.679422 | Duration: 0:28:34 | Date: 2025-06-20
 G3 | MC8 | IP: 192.168.1.16 | Downtime: 2025-06-20 22:34:32.143807 - 2025-06-20 22:34:34.304868 | Duration: 0:00:02 | Date: 2025-06-20
@@ -234,3 +231,8 @@ G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 19:59:39.969068 - 2025-07-08
 G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 22:36:33.598633 - 2025-07-08 22:47:58.679586 | Duration: 0:11:25 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
 G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 22:49:00.109104 - 2025-07-08 23:05:22.512374 | Duration: 0:16:22 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
 G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 23:06:08.851964 - 2025-07-08 23:06:11.392819 | Duration: 0:00:02 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
+G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 23:06:20.965976 - 2025-07-08 23:37:18.389752 | Duration: 0:30:57 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
+G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 23:40:30.008397 - 2025-07-08 23:40:32.216796 | Duration: 0:00:02 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
+G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 23:40:39.087876 - 2025-07-08 23:40:41.143073 | Duration: 0:00:02 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
+G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-08 23:41:09.358997 - 2025-07-08 23:41:11.468987 | Duration: 0:00:02 | Date: 2025-07-08 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
+G1 | MC04 | IP: 192.168.1.10 | Downtime: 2025-07-10 00:10:38.373127 - 2025-07-10 00:10:41.234089 | Duration: 0:00:02 | Date: 2025-07-10 | Start Shift: Night Shift (22:00-06:00) | End Shift: Night Shift (22:00-06:00)
