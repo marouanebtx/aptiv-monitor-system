@@ -1,6 +1,6 @@
 # APTIV Machine Monitoring System
 
-A real-time machine status system that pings multiple machines and displays their connection status with downtime tracking.
+A real-time machine status system that monitor multiple machines and displays their connection status with downtime tracking.
 
 ## Features
 
