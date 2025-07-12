@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .getElementById("machine-name")
       .value.trim()
       .toLowerCase();
-    const groupBy = document.getElementById("group-by").value; // day, week, month
+    const groupBy = document.getElementById("group-by").value; // [day, week, month]
 
     fetch("../logs/downtime_logs.json")
       .then((res) => res.json())

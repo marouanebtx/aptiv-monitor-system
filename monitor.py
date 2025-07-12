@@ -1,6 +1,6 @@
-# =======================
+# =========================================
 # APTIV Machine Connectivity Monitor System
-# =======================
+# =========================================
 
 import json
 import time
@@ -13,13 +13,13 @@ import os
 # Configuration
 # =======================
 machines = [
-    {"name": "MC01", "ip": "10.236.148.91", "zone": "G1"},
-    {"name": "MC02", "ip": "10.236.148.92", "zone": "G1"},
-    {"name": "MC03", "ip": "10.236.148.93", "zone": "G1"},
-    {"name": "MC04", "ip": "10.236.148.94", "zone": "G1"},
-    {"name": "MC05", "ip": "10.236.148.95", "zone": "G1"},
-    {"name": "MC06", "ip": "10.236.148.96", "zone": "G1"},
-    {"name": "MC07", "ip": "10.236.148.92", "zone": "G1"}
+    {"name": "MC01", "ip": "10.236.150.61", "zone": "G1"},
+    {"name": "MC02", "ip": "10.236.150.62", "zone": "G1"},
+    {"name": "MC03", "ip": "10.236.150.63", "zone": "G1"},
+    {"name": "MC04", "ip": "10.236.150.64", "zone": "G1"},
+    {"name": "MC05", "ip": "10.236.150.65", "zone": "G1"},
+    {"name": "MC06", "ip": "10.236.150.66", "zone": "G1"},
+    {"name": "MC07", "ip": "10.236.150.67", "zone": "G1"}
 ]
 
 status_file = r"dashboard\status.json"
@@ -53,7 +53,7 @@ def get_shift_name(shift_code):
     return shift_names.get(shift_code, shift_code)
 
 # =======================
-# Ping Logic
+# Ping
 # =======================
 def check_machine(machine):
     ip = machine["ip"]

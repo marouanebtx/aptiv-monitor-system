@@ -1,10 +1,18 @@
-# APTIV Machine Monitoring Dashboard
+# APTIV Machine Monitoring System
 
-This project monitors machine connectivity in real-time. Built with Python, HTML, CSS, and JavaScript, it shows machine status, downtime, and statistics.
+A real-time machine status system that pings multiple machines and displays their connection status with downtime tracking.
 
 ## Features
-- Real-time ping monitoring
-- Dashboard UI with machine zones
-- Search & filter machines
-- Uptime/downtime summary
-- Export logs to JSON and TXT
+
+- Monitors machine status via ping
+- Real-time dashboard with live updates every 5 seconds
+- Filter by zone, machine name, and date range
+- Pareto graph for downtime analysis
+- Auto-logging of downtime to JSON and TXT files
+
+## Project Structure
+
+- `monitor.py`: Python script that runs the ping monitor
+- `dashboard/`: Frontend files (HTML, CSS, JS)
+- `logs/`: Log files (generated automatically)
+- `start_dashboard.bat`: One-click starter for Windows
