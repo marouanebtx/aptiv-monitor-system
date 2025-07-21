@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>APTIV - Action Plan</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/tabulator.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tabulator CSS -->
+    <link
+      href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>APTIV</h2>
+      </div>
+
+      <ul>
+        <li>
+          <a href="dashboard.html" class="zone-link"
+            ><i class="fa-solid fa-gauge-high"></i><span>Status</span></a
+          >
+        </li>
+        <li>
+          <a href="filter-view.html" class="zone-link"
+            ><i class="fa-solid fa-chart-simple"></i><span>Pareto</span></a
+          >
+        </li>
+        <li>
+          <a href="action.html" class="zone-link"
+            ><i class="fa-regular fa-file fa-fw"></i><span>Action</span></a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="top-bar">
+        <h1>Plan d'action</h1>
+      </div>
+
+      <div class="action-section">
+        <!-- <div class="action-header">
+          <h3>Plan d'action: .................................</h3>
+        </div> -->
+
+        <div class="action-toolbar">
+          <button id="export-pdf" class="action-btn">
+            <i class="fas fa-file-pdf"></i> Export as PDF
+          </button>
+          <button id="add-row" class="action-btn">
+            <i class="fas fa-plus"></i> Add a Line
+          </button>
+        </div>
+
+        <!-- Tabulator Table matching your Excel structure -->
+        <div id="action-table"></div>
+      </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <!-- <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script> -->
+
+    <script src="libs/tabulator.min.js"></script>
+    <script src="libs/jspdf.umd.min.js"></script>
+    <script src="libs/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Custom JS for Action Page -->
+    <script src="action.js"></script>
+  </body>
+</html>
