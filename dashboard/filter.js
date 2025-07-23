@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "❌ No data found for selected filters.";
           return;
         }
+        renderDowntimeTable(filtered);
 
         document.getElementById("paretoChart").style.display = "block";
         document.getElementById("no-data-msg").textContent = "";
@@ -152,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "\u274C No data found for selected filters.";
           return;
         }
+        renderDowntimeTable(filtered);
 
         document.getElementById("paretoChart").style.display = "block";
         document.getElementById("no-data-msg").textContent = "";

@@ -496,3 +496,21 @@ ul li {
     font-size: 14px;
   }
 }
+
+/* Start Filter Table */
+.downtime-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+.downtime-table th,
+.downtime-table td {
+  border: 1.5px solid #333;
+  padding: 8px;
+  text-align: center;
+}
+.downtime-table th {
+  background-color: #bababa;
+  color: #333;
+}
+/* Start Filter Table */
