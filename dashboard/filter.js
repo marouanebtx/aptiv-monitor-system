@@ -300,3 +300,39 @@ function showParetoChart(labels, data, selectedShift, groupBy) {
     },
   });
 }
+
+// Start Detailed downtime table
+function renderDowntimeTable(filteredData) {
+  const table = document.createElement("table");
+  table.classList.add("downtime-table");
+
+  const headers = `
+    <tr>
+      <th>Machine</th>
+      <th>Zone</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Duration</th>
+      <th>Shift</th>
+    </tr>
+  `;
+  table.innerHTML = headers;
+
+  filteredData.forEach((entry) => {
+    const row = `
+      <tr>
+        <td>${entry.name}</td>
+        <td>${entry.zone}</td>
+        <td>${entry.start}</td>
+        <td>${entry.end}</td>
+        <td>${entry.duration}</td>
+      <td>${entry.shift_name_start || "-"}</td>
+      </tr>
+    `;
+    table.innerHTML += row;
+  });
+
+  const container = document.getElementById("dashboard-content");
+  container.appendChild(table);
+}
+// End Detailed downtime table
