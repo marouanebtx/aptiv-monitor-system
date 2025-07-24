@@ -153,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "\u274C No data found for selected filters.";
           return;
         }
-        renderDowntimeTable(filtered);
 
         document.getElementById("paretoChart").style.display = "block";
         document.getElementById("no-data-msg").textContent = "";
@@ -193,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = sortedGroups.map(([, sec]) => (sec / 60).toFixed(2));
 
         showParetoChart(labels, data, selectedShift, groupBy);
+        renderDowntimeTable(filtered);
       });
   });
 
