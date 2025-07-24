@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize Tabulator with your exact Excel structure
+  // Initialize Tabulator (same structure as your Excel)
   const table = new Tabulator("#action-table", {
-    height: "calc(100vh - 180px)", // Dynamic height
+    height: "calc(100vh - 250px)",
     layout: "fitColumns",
     columns: [
       {
@@ -31,17 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "Statut",
         field: "statut",
         editor: "select",
-        editorParams: {
-          // values: ["", "En cours", "Terminé", "En attente"],
-          values: ["O", "25%", "50%", "75%", "100%"],
-        },
+        editorParams: { values: ["O", "25%", "50%", "75%", "100%"] },
         width: 100,
       },
     ],
-    data: generateInitialData(),
+    data: generateInitialData(), // Pre-fills 20 empty rows like your template
   });
 
-  // Generate initial data matching your Excel structure
+  // Generate initial empty data (matching your Excel)
   function generateInitialData() {
     const data = [];
     for (let i = 1; i <= 20; i++) {
@@ -59,44 +56,27 @@ document.addEventListener("DOMContentLoaded", function () {
     return data;
   }
 
-  // Add row button
+  // Add new row (auto-increments "Numero")
   document.getElementById("add-row").addEventListener("click", function () {
     const newNumero = table.getData().length + 1;
-    table.addRow(
-      {
-        numero: newNumero,
-        famille: "",
-        description: "",
-        cause: "",
-        action: "",
-        responsable: "",
-        date: "",
-        statut: "",
-      },
-      false
-    );
+    table.addRow({
+      numero: newNumero,
+      famille: "",
+      description: "",
+      cause: "",
+      action: "",
+      responsable: "",
+      date: "",
+      statut: "",
+    });
   });
 
-  // Export to PDF with French labels
-  document.getElementById("export-pdf").addEventListener("click", function () {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Title
-    doc.setFont("helvetica", "bold");
-    doc.setTextColor(40, 62, 80);
-    doc.setFontSize(16);
-    doc.text("Plan d'action APTIV", 105, 15, { align: "center" });
-
-    // Date
-    doc.setFontSize(10);
-    doc.text(`Généré le: ${new Date().toLocaleDateString("fr-FR")}`, 105, 22, {
-      align: "center",
-    });
-
-    // AutoTable
-    doc.autoTable({
-      head: [
+  // Excel Export (main function)
+  document
+    .getElementById("export-excel")
+    .addEventListener("click", function () {
+      // Prepare data with French headers
+      const excelData = [
         [
           "Numero",
           "Famille",
@@ -106,43 +86,30 @@ document.addEventListener("DOMContentLoaded", function () {
           "Responsable",
           "Date",
           "Statut",
-        ],
-      ],
-      body: table
-        .getData()
-        .map((row) => [
-          row.numero,
-          row.famille,
-          row.description,
-          row.cause,
-          row.action,
-          row.responsable,
-          row.date,
-          row.statut,
-        ]),
-      startY: 30,
-      headStyles: {
-        fillColor: [44, 62, 80],
-        textColor: 255,
-      },
-      styles: {
-        font: "cairo",
-        fontSize: 8,
-        cellPadding: 3,
-      },
-      columnStyles: {
-        0: { cellWidth: "auto" },
-        1: { cellWidth: "auto" },
-        2: { cellWidth: "auto" },
-        3: { cellWidth: "auto" },
-        4: { cellWidth: "auto" },
-        5: { cellWidth: "auto" },
-        6: { cellWidth: "auto" },
-        7: { cellWidth: "auto" },
-      },
-      margin: { horizontal: 5 },
-    });
+        ], // Headers
+        ...table
+          .getData()
+          .map((row) => [
+            row.numero,
+            row.famille,
+            row.description,
+            row.cause,
+            row.action,
+            row.responsable,
+            row.date,
+            row.statut,
+          ]),
+      ];
 
-    doc.save(`Plan-Action-APTIV-${new Date().toISOString().slice(0, 10)}.pdf`);
-  });
+      // Create workbook
+      const ws = XLSX.utils.aoa_to_sheet(excelData);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Plan d'action");
+
+      // Export file (name format: Plan-Action-APTIV-YYYY-MM-DD.xlsx)
+      XLSX.writeFile(
+        wb,
+        `Plan-Action-APTIV-${new Date().toISOString().slice(0, 10)}.xlsx`
+      );
+    });
 });

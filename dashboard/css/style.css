@@ -514,3 +514,67 @@ ul li {
   color: #333;
 }
 /* Start Filter Table */
+
+/* Start Action Plan */
+.action-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.action-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.action-header h3 {
+  color: #2c3e50;
+  font-weight: normal;
+  font-style: italic;
+}
+.action-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.action-btn {
+  background: #18191a;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.action-btn:hover {
+  background: #1a252f;
+}
+
+/* Tabulator Customization for French Labels */
+.tabulator {
+  font-family: "Cairo", sans-serif;
+  border: 1px solid #ddd;
+}
+.tabulator-header {
+  background: #2c3e50;
+  color: white;
+  font-weight: bold;
+}
+.tabulator-row {
+  border-bottom: 1px solid #eee;
+}
+.tabulator-cell {
+  padding: 8px 12px;
+}
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content {
+  background-color: rgb(255, 238, 0);
+}
+.tabulator-row .tabulator-cell {
+  background-color: white;
+  border-bottom: 1px solid #aaa;
+}
+
+/* End Action Plan */
