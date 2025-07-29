@@ -112,6 +112,12 @@ body {
 ul {
   padding: 0;
 }
+.sidebar a.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
 ul li {
   list-style: none;
 }

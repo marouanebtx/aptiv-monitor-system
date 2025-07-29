@@ -221,3 +221,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update current time every second, independent of fetch status
   setInterval(updateCurrentTime, 1000);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const url = window.location.href;
+
+  if (url.includes("dashboard.html")) {
+    document.getElementById("status-link")?.classList.add("active");
+  } else if (url.includes("filter.html")) {
+    document.getElementById("filter-link")?.classList.add("active");
+  } else if (url.includes("add_machine.html")) {
+    document.getElementById("add-link")?.classList.add("active");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll(".sidebar a");
+
+  // Get current page filename
+  const currentPage = window.location.pathname.split("/").pop();
+
+  links.forEach((link) => {
+    const linkPage = link.getAttribute("href").split("/").pop();
+
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+});
