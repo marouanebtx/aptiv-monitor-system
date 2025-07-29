@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .getElementById("machine-name")
       .value.trim()
       .toLowerCase();
-    const groupBy = document.getElementById("group-by").value; // [day, week, month]
+    const groupBy = document.getElementById("group-by").value; // day, week, month
 
     fetch("../logs/downtime_logs.json")
       .then((res) => res.json())
@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "❌ No data found for selected filters.";
           return;
         }
-        renderDowntimeTable(filtered);
 
         document.getElementById("paretoChart").style.display = "block";
         document.getElementById("no-data-msg").textContent = "";
@@ -96,16 +95,10 @@ function getShiftFromTime(timestamp) {
   const date = new Date(timestamp);
   const hour = date.getHours();
 
-  if (hour >= 6 && hour < 14) {
-    return "MORNING";
-  } else if (hour >= 14 && hour < 22) {
-    return "AFTERNOON";
-  } else {
-    return "NIGHT";
-  }
+  if (hour >= 6 && hour < 14) return "MORNING";
+  if (hour >= 14 && hour < 22) return "AFTERNOON";
+  return "NIGHT";
 }
-
-// Pareto Filter Logic with Group By Feature
 
 let paretoChart;
 
@@ -147,10 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
           return inDateRange && inGroup && matchName && inShift;
         });
 
+        const dashboard = document.getElementById("dashboard-content");
+        dashboard.innerHTML = "";
+
         if (filtered.length === 0) {
           document.getElementById("paretoChart").style.display = "none";
           document.getElementById("no-data-msg").textContent =
-            "\u274C No data found for selected filters.";
+            "❌ No data found for selected filters.";
           return;
         }
 
@@ -158,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("no-data-msg").textContent = "";
 
         const groupedData = {};
-
         filtered.forEach((log) => {
           const [h, m, s] = log.duration.split(":").map(Number);
           const seconds = h * 3600 + m * 60 + s;
@@ -170,9 +165,9 @@ document.addEventListener("DOMContentLoaded", function () {
               groupKey = logDate.toISOString().slice(0, 10);
               break;
             case "week":
-              const firstDayOfWeek = new Date(logDate);
-              firstDayOfWeek.setDate(logDate.getDate() - logDate.getDay());
-              groupKey = firstDayOfWeek.toISOString().slice(0, 10);
+              const weekStart = new Date(logDate);
+              weekStart.setDate(logDate.getDate() - logDate.getDay());
+              groupKey = weekStart.toISOString().slice(0, 10);
               break;
             case "month":
               groupKey = `${logDate.getFullYear()}-${String(
@@ -189,121 +184,120 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         const labels = sortedGroups.map(([label]) => label);
-        const data = sortedGroups.map(([, sec]) => (sec / 60).toFixed(2));
+        const data = sortedGroups.map(([, sec]) => ({
+          minutes: (sec / 60).toFixed(2),
+          hours: (sec / 3600).toFixed(2),
+        }));
 
         showParetoChart(labels, data, selectedShift, groupBy);
         renderDowntimeTable(filtered);
       });
+
+    document
+      .getElementById("preset-range")
+      .addEventListener("change", function () {
+        const today = new Date();
+        const startInput = document.getElementById("date-from");
+        const endInput = document.getElementById("date-to");
+
+        let startDate, endDate;
+
+        switch (this.value) {
+          case "today":
+            startDate = new Date(today);
+            endDate = new Date(today);
+            break;
+          case "lastWeek":
+            startDate = new Date(today);
+            startDate.setDate(today.getDate() - 7);
+            endDate = new Date(today);
+            break;
+          case "thisMonth":
+            startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+            endDate = new Date(today);
+            break;
+          default:
+            return;
+        }
+
+        startInput.value = startDate.toISOString().slice(0, 10);
+        endInput.value = endDate.toISOString().slice(0, 10);
+      });
   });
 
-  // ======== Select Date Preset =========
-  document
-    .getElementById("preset-range")
-    .addEventListener("change", function () {
-      const today = new Date();
-      const startInput = document.getElementById("date-from");
-      const endInput = document.getElementById("date-to");
+  function showParetoChart(labels, data, selectedShift, groupBy) {
+    const ctx = document.getElementById("paretoChart").getContext("2d");
+    if (paretoChart) paretoChart.destroy();
 
-      let startDate, endDate;
+    const shiftNames = {
+      MORNING: "Morning Shift (06:00-14:00)",
+      AFTERNOON: "Afternoon Shift (14:00-22:00)",
+      NIGHT: "Night Shift (22:00-06:00)",
+      ALL: "All Shifts",
+    };
 
-      switch (this.value) {
-        case "today":
-          startDate = new Date(today);
-          endDate = new Date(today);
-          break;
-        case "lastWeek":
-          startDate = new Date(today);
-          startDate.setDate(today.getDate() - 7);
-          endDate = new Date(today);
-          break;
-        case "thisMonth":
-          startDate = new Date(today.getFullYear(), today.getMonth(), 1);
-          endDate = new Date(today);
-          break;
-        default:
-          return;
-      }
+    const chartTitle =
+      selectedShift === "ALL"
+        ? "Pareto Downtime (All Shifts)"
+        : `Pareto Downtime - ${shiftNames[selectedShift]}`;
 
-      startInput.value = startDate.toISOString().slice(0, 10);
-      endInput.value = endDate.toISOString().slice(0, 10);
+    paretoChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Downtime (min | hr)",
+            data: data.map((d) => d.minutes),
+            backgroundColor:
+              selectedShift === "MORNING"
+                ? "rgba(255, 193, 7, 0.6)"
+                : selectedShift === "AFTERNOON"
+                ? "rgba(40, 167, 69, 0.6)"
+                : selectedShift === "NIGHT"
+                ? "rgba(108, 117, 125, 0.6)"
+                : "rgba(255, 99, 132, 0.6)",
+            borderColor:
+              selectedShift === "MORNING"
+                ? "rgba(255, 193, 7, 1)"
+                : selectedShift === "AFTERNOON"
+                ? "rgba(40, 167, 69, 1)"
+                : selectedShift === "NIGHT"
+                ? "rgba(108, 117, 125, 1)"
+                : "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
+          title: {
+            display: true,
+            text: `${chartTitle} - Grouped by ${groupBy.toUpperCase()}`,
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                const min = data[context.dataIndex].minutes;
+                const hr = data[context.dataIndex].hours;
+                return `Downtime: ${min} min (${hr} hr)`;
+              },
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: "Downtime (minutes)" },
+          },
+        },
+      },
     });
+  }
 });
 
-// Helper to determine shift from time
-function getShiftFromTime(timestamp) {
-  const date = new Date(timestamp);
-  const hour = date.getHours();
-
-  if (hour >= 6 && hour < 14) return "MORNING";
-  if (hour >= 14 && hour < 22) return "AFTERNOON";
-  return "NIGHT";
-}
-
-// Draw Pareto Chart
-function showParetoChart(labels, data, selectedShift, groupBy) {
-  const ctx = document.getElementById("paretoChart").getContext("2d");
-  if (paretoChart) paretoChart.destroy();
-
-  const shiftNames = {
-    MORNING: "Morning Shift (06:00-14:00)",
-    AFTERNOON: "Afternoon Shift (14:00-22:00)",
-    NIGHT: "Night Shift (22:00-06:00)",
-    ALL: "All Shifts",
-  };
-
-  const chartTitle =
-    selectedShift === "ALL"
-      ? "Pareto Downtime (All Shifts)"
-      : `Pareto Downtime - ${shiftNames[selectedShift]}`;
-
-  paretoChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Downtime (minutes)",
-          data: data,
-          backgroundColor:
-            selectedShift === "MORNING"
-              ? "rgba(255, 193, 7, 0.6)"
-              : selectedShift === "AFTERNOON"
-              ? "rgba(40, 167, 69, 0.6)"
-              : selectedShift === "NIGHT"
-              ? "rgba(108, 117, 125, 0.6)"
-              : "rgba(255, 99, 132, 0.6)",
-          borderColor:
-            selectedShift === "MORNING"
-              ? "rgba(255, 193, 7, 1)"
-              : selectedShift === "AFTERNOON"
-              ? "rgba(40, 167, 69, 1)"
-              : selectedShift === "NIGHT"
-              ? "rgba(108, 117, 125, 1)"
-              : "rgba(255, 99, 132, 1)",
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: true },
-        title: {
-          display: true,
-          text: `${chartTitle} - Grouped by ${groupBy.toUpperCase()}`,
-        },
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: { display: true, text: "Minutes" },
-        },
-      },
-    },
-  });
-}
-
-// Start Detailed downtime table
 function renderDowntimeTable(filteredData) {
   const table = document.createElement("table");
   table.classList.add("downtime-table");
@@ -328,7 +322,7 @@ function renderDowntimeTable(filteredData) {
         <td>${entry.start}</td>
         <td>${entry.end}</td>
         <td>${entry.duration}</td>
-      <td>${entry.shift_name_start || "-"}</td>
+        <td>${entry.shift_name_start || "-"}</td>
       </tr>
     `;
     table.innerHTML += row;
@@ -337,4 +331,3 @@ function renderDowntimeTable(filteredData) {
   const container = document.getElementById("dashboard-content");
   container.appendChild(table);
 }
-// End Detailed downtime table

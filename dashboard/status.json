@@ -4,69 +4,69 @@
     "ip": "10.236.150.61",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   },
   {
     "name": "MC02",
     "ip": "10.236.150.62",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   },
   {
     "name": "MC03",
     "ip": "10.236.150.63",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   },
   {
     "name": "MC04",
     "ip": "10.236.150.64",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   },
   {
     "name": "MC05",
     "ip": "10.236.150.65",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   },
   {
     "name": "MC06",
     "ip": "10.236.150.66",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   },
   {
     "name": "MC07",
     "ip": "10.236.150.67",
     "zone": "G1",
     "status": "offline",
-    "lastChecked": "2025-07-24 22:53:08",
-    "downtimeStart": "2025-07-24 22:47:38",
-    "currentShift": "NIGHT",
-    "shiftName": "Night Shift (22:00-06:00)"
+    "lastChecked": "2025-07-25 09:20:46",
+    "downtimeStart": "2025-07-25 08:51:36",
+    "currentShift": "MORNING",
+    "shiftName": "Morning Shift (06:00-14:00)"
   }
 ]
